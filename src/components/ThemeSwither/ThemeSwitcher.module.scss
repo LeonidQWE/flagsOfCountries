@@ -1,0 +1,22 @@
+.themeSwither {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.4rem 1rem;
+  color: var(--color-text);
+}
+
+.themeTitle {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.themeVariant {
+  font-size: 2rem;
+}
+
+.themeIcon {
+  width: 2rem;
+  height: 2rem;
+  fill: var(--color-text);
+}
