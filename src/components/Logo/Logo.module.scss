@@ -1,0 +1,21 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 1rem;
+
+  &Icon {
+    fill: var(--color-text);
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  &Title {
+    color: var(--color-text);
+    font-size: 3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}
+
+
