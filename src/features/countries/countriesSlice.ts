@@ -21,17 +21,16 @@ const countrySlice = createSlice({
     builder
       .addCase(fetchCountries.pending, (state) => {
         state.status = 'loading';
-        state.error = null;
-      })
-      .addCase(fetchCountries.rejected, (state, action) => {
-        state.status = 'rejected';
-        state.error = action.payload;
       })
       .addCase(fetchCountries.fulfilled, (state, action) => {
         state.status = 'received';
         state.list = action.payload.data;
       })
+      .addCase(fetchCountries.rejected, (state, action) => {
+        state.status = 'rejected';
+        state.error = action.payload;
+      })
   }
 })
 
-export const countryReducer = countrySlice.reducer
+export const countryReducer = countrySlice.reducer;

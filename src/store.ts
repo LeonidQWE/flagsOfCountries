@@ -14,6 +14,7 @@ export const store = configureStore({
         client: axios,
         api,
       }
-    }
+    },
+    serializableCheck: false
   })
 })
