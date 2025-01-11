@@ -1,12 +1,12 @@
-import { useSelector, useDispatch } from 'react-redux';
 import { Container } from 'components/Container';
 import { Header } from 'components/Header';
 import { useEffect } from 'react';
 import { fetchCountries } from 'features/countries/countriesSlice';
+import { useAppDispatch, useAppSelector } from 'store';
 
 function App() {
-  const dispatch = useDispatch();
-  const countries = useSelector(state => state.countries.list);
+  const dispatch = useAppDispatch();
+  const countries = useAppSelector(state => state.countries.list);
 
   useEffect(() => {
     dispatch(fetchCountries());
