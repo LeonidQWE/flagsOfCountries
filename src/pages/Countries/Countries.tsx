@@ -1,6 +1,7 @@
 import { useCountries } from 'hooks/useCountries';
 import { CountriesList } from 'components/CountriesList';
 import { Error } from 'components/Error';
+import { Loading } from 'components/Loading';
 
 export const Countries = () => {
   const [countries, status, error] = useCountries();
@@ -10,7 +11,7 @@ export const Countries = () => {
   }
 
   if (status === 'loading') {
-    return <h1>Loading...</h1>
+    return <Loading />
   }
 
   return (
