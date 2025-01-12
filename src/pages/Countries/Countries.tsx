@@ -1,19 +1,8 @@
-import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from 'store';
-import { fetchCountries } from 'features/countries/countriesSlice';
+import { useCountries } from 'hooks/useCountries';
 import { CountriesList } from 'components/CountriesList';
 
 export const Countries = () => {
-  const dispatch = useAppDispatch();
-  const countries = useAppSelector(state => state.countries.list);
-  const error = useAppSelector(state => state.countries.error);
-  const status = useAppSelector(state => state.countries.status);
-
-  useEffect(() => {
-    if (!countries.length) {
-      dispatch(fetchCountries());
-    }
-  }, [countries.length, dispatch]);
+  const [countries, status, error] = useCountries();
 
   if (error) {
     return <h1>{error}</h1>
@@ -25,7 +14,9 @@ export const Countries = () => {
 
   return (
     <>
-      {countries.length > 0 && status === 'succeeded' && <CountriesList countries={countries} />}
+      {countries.length > 0
+        && status === 'succeeded'
+        && <CountriesList countries={countries} />}
     </>
   )
 }
