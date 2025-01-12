@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
-import { fetchCountries } from 'features/countries/countriesSlice';
 import { useAppDispatch, useAppSelector } from 'store';
+import { fetchCountries } from 'features/countries/countriesSlice';
+import { CountriesList } from 'components/CountriesList';
 
 export const Countries = () => {
     const dispatch = useAppDispatch();
@@ -13,10 +14,6 @@ export const Countries = () => {
     }, [countries.length, dispatch]);
 
   return (
-    <div>
-      {countries.map((country, index) => (
-        <div key={index}>{country.name.common}</div>
-      ))}
-    </div>
+    <CountriesList countries={countries} />
   )
 }
