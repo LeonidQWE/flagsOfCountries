@@ -1,0 +1,28 @@
+.card {
+  flex: 0 1 calc((100% - 2rem * 2) / 3);
+  padding: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: space-between;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.imgContainer {
+  width: 100%;
+  height: auto;
+}
+
+.item {
+  color: var(--color-text);
+}
+
+.itemName {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.itemValue {
+  font-size: 2.4rem;
+}

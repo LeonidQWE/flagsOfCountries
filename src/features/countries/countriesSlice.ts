@@ -1,15 +1,26 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { Extra, ShortCountryInfo, Status } from 'types';
 
-export const fetchCountries = createAsyncThunk(
+export const fetchCountries = createAsyncThunk<
+  { data: ShortCountryInfo[] },
+  undefined,
+  {extra: Extra}
+>(
   '@@countries/load-countries',
   (_, {extra: {client, api}}) => {
     return client.get(api.ALL_COUNTRIES)
   }
 )
 
-const initialState = {
+type CountrySlise = {
+  status: Status,
+  error: string | undefined,
+  list: Array<ShortCountryInfo>
+}
+
+const initialState: CountrySlise = {
   status: 'idle',
-  error: null,
+  error: undefined,
   list: [],
 }
 
@@ -17,21 +28,23 @@ const countrySlice = createSlice({
   name: 'countries',
   initialState,
   reducers: {},
+  selectors: {
+    selectAllCountries: (state) => state.list,
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCountries.pending, (state) => {
         state.status = 'loading';
-        state.error = null;
+      })
+      .addCase(fetchCountries.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.list = action.payload.data;
       })
       .addCase(fetchCountries.rejected, (state, action) => {
         state.status = 'rejected';
-        state.error = action.payload;
-      })
-      .addCase(fetchCountries.fulfilled, (state, action) => {
-        state.status = 'received';
-        state.list = action.payload.data;
+        state.error = action.error.message;
       })
   }
 })
 
-export const countryReducer = countrySlice.reducer
+export const countryReducer = countrySlice.reducer;
