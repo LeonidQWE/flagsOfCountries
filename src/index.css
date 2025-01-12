@@ -1,6 +1,7 @@
 :root {
   --light: hsl(0, 0%, 100%);
   --dark: hsl(200, 15%, 8%);
+  --danger: hsl(0, 100%, 50%);
   --dark-blue: hsl(207, 26%, 17%);
 }
 
