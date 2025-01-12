@@ -1,0 +1,12 @@
+.error {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.errorTitle {
+  font-size: 4rem;
+  text-transform: uppercase;
+  color: var(--danger);
+}
