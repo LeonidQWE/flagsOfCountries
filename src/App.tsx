@@ -1,14 +1,10 @@
-import { Container } from 'components/Container';
-import { Header } from 'components/Header';
-import { Countries } from 'pages/Countries';
+import { RouterProvider } from 'react-router-dom';
+import { router } from 'router';
 
 
 function App() {
   return (
-    <Container>
-      <Header/>
-      <Countries/>
-    </Container>
+    <RouterProvider router={router}/>
   )
 }
 
