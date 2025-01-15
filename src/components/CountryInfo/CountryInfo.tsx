@@ -1,6 +1,7 @@
+import { Title } from 'components/Title';
+import { Image } from 'components/Image';
 import { Country } from 'types';
 import styles from './CountryInfo.module.scss';
-import { Title } from 'components/Title';
 
 type CountryInfoProps = {
   country: Country,
@@ -12,7 +13,7 @@ export const CountryInfo = ({ country }: CountryInfoProps) => {
       official: countryName,
     },
     flags: {
-      png,
+      png: scrImg,
       alt,
     },
   } = country;
@@ -21,9 +22,7 @@ export const CountryInfo = ({ country }: CountryInfoProps) => {
     <>
       <Title name={countryName}/>
       <div className={styles.countryInfo}>
-        <div className={styles.imgContainer}>
-          <img src={png} alt={alt} />
-        </div>
+        <Image size={'md'} srcImg={scrImg} altImg={alt}/>
 
         <div>
         </div>
