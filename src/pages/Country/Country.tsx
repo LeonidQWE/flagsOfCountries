@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'store';
 import { fetchCountryDetails } from 'features/countryDetails/countryDetails';
+import { CountryInfo } from 'components/CountryInfo';
 
 export const Country = () => {
   const { name } = useParams()
@@ -14,9 +15,9 @@ export const Country = () => {
     }
   }, [dispatch])
 
-  console.log(country);
-
   return (
-    <h1>Country Page</h1>
+    <>
+      {country && <CountryInfo country={country} />}
+    </>
   )
 }
