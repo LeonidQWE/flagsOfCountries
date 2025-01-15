@@ -1,6 +1,7 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { Layout } from 'components/Layout';
 import { Countries } from 'pages/Countries';
+import { Country } from 'pages/Country';
 
 export const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ export const router = createBrowserRouter([
         path: '/countries',
         element: <Countries/>,
       },
+      {
+        path: '/country/:name',
+        element: <Country/>
+      }
     ]
   }
 ])

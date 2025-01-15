@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { ShortCountryInfo } from 'types';
 import styles from './CountryCard.module.scss';
 
@@ -6,12 +7,14 @@ interface CountryCardProps {
 }
 
 export const CountryCard = ({ country }: CountryCardProps) => {
+  const navigate = useNavigate();
   const {
     flags: {
       png: hrefImg,
       alt,
     },
     name: {
+      common: nameForPath,
       official: countryName,
     },
     capital,
@@ -33,8 +36,12 @@ export const CountryCard = ({ country }: CountryCardProps) => {
     },
   ];
 
+  const handleClickRedirectOnCountryPage = () => {
+    navigate(`/country/${nameForPath}`);
+  }
+
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={handleClickRedirectOnCountryPage}>
       <div className={styles.imgContainer}>
         <img src={hrefImg} alt={alt}/>
       </div>

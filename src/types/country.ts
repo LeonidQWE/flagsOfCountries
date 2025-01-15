@@ -29,7 +29,7 @@ export type Country = {
   subregion: string,
   population: number,
   capital: string[],
-  borders: string[],
+  borders: string[] | undefined,
   area: number,
   currencies: {
     [key: string]: CurrencyItem,
