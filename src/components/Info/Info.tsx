@@ -1,3 +1,5 @@
+import { InfoItem } from "components/InfoItem"
+
 interface infoSchemaItem {
   itemName: string,
   itemValue: string | number,
@@ -11,10 +13,7 @@ export const Info = ({ infoSchema }: InfoProps) => {
   return (
     <ul>
       {infoSchema.map((item, index) => (
-        <li key={index}>
-          <span>{item.itemName}: </span>
-          <span>{item.itemValue}</span>
-        </li>
+        <InfoItem key={index} name={item.itemName} value={item.itemValue}/>
       ))}
     </ul>
   )
