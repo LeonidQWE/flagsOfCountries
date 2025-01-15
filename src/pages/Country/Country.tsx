@@ -1,7 +1,7 @@
-import { useParams } from 'react-router-dom';
-import { fetchCountryDetails } from 'features/countryDetails/countryDetails';
 import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'store';
+import { fetchCountryDetails } from 'features/countryDetails/countryDetails';
 
 export const Country = () => {
   const { name } = useParams()
@@ -9,10 +9,9 @@ export const Country = () => {
   const country = useAppSelector(state => state.countryDetails.country);
 
   useEffect(() => {
-    // if (!country) {
-    //   dispatch(fetchCountryDetails(name!));
-    // }
-    dispatch(fetchCountryDetails(name));
+    if (name) {
+      dispatch(fetchCountryDetails(name));
+    }
   }, [dispatch])
 
   console.log(country);

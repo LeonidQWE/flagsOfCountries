@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { Country, Extra } from 'types';
+import { Country, Extra, Status } from 'types';
 
 export const fetchCountryDetails = createAsyncThunk<
   {data: Country[]},
@@ -12,7 +12,13 @@ export const fetchCountryDetails = createAsyncThunk<
   }
 )
 
-const initialState = {
+type CountryDetailsSlice = {
+  status: Status,
+  error: string | undefined,
+  country: Country | null,
+}
+
+const initialState: CountryDetailsSlice = {
   status: 'idle',
   error: undefined,
   country: null,
