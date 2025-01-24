@@ -3,6 +3,7 @@ import { Image } from 'components/Image';
 import { Country } from 'types';
 import styles from './CountryInfo.module.scss';
 import { Info } from 'components/Info';
+import { Link } from 'components/Link';
 
 interface CountryInfoProps {
   country: Country,
@@ -23,6 +24,7 @@ export const CountryInfo = ({ country }: CountryInfoProps) => {
     subregion,
     capital,
     area,
+    borders,
   } = country;
 
   const infoSchema = [
@@ -60,6 +62,16 @@ export const CountryInfo = ({ country }: CountryInfoProps) => {
 
         <div>
           <Info infoSchema={infoSchema}/>
+          {!borders?.length ? (
+            <span>No borders</span>
+          ) : (
+            <div>
+              <span>Borders:</span>
+              {borders.map((item, index) => (
+                <Link key={index} path={'#'} text={item}/>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </>

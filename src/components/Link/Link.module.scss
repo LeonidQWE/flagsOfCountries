@@ -1,0 +1,16 @@
+.link {
+  padding: 0.8rem 1.5rem;
+  font-size: 1.6rem;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 1rem;
+
+  &:hover {
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);;
+  }
+
+  &:active {
+    color: #844242;
+    border: 1px solid #844242;
+  }
+}
