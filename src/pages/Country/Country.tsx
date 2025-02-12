@@ -1,19 +1,20 @@
-import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from 'store';
-import { fetchCountryDetails } from 'features/countryDetails/countryDetails';
+import { useCountry } from 'hooks/useCountry';
 import { CountryInfo } from 'components/CountryInfo';
+import { Error } from 'components/Error';
+import { Loading } from 'components/Loading';
 
 export const Country = () => {
   const { name } = useParams()
-  const dispatch = useAppDispatch();
-  const country = useAppSelector(state => state.countryDetails.country);
+  const {country, status, error} = useCountry(name);
 
-  useEffect(() => {
-    if (name) {
-      dispatch(fetchCountryDetails(name));
-    }
-  }, [dispatch, name]);
+  if (error) {
+      return <Error message={error} />
+  }
+
+  if (status === 'loading') {
+    return <Loading />
+  }
 
   return (
     <>

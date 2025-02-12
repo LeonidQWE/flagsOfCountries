@@ -1,6 +1,4 @@
-import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from 'store';
-import { fetchNeighbors } from 'features/countryDetails/countryDetails';
+import { useNeighbors } from 'hooks/useNeighbors';
 import { Title } from 'components/Title';
 import { Image } from 'components/Image';
 import { Info } from 'components/Info';
@@ -13,9 +11,6 @@ interface CountryInfoProps {
 }
 
 export const CountryInfo = ({ country }: CountryInfoProps) => {
-  const dispatch = useAppDispatch();
-  const neighbors = useAppSelector(state => state.countryDetails.neighbors);
-
   const {
     name: {
       official: countryName,
@@ -32,6 +27,8 @@ export const CountryInfo = ({ country }: CountryInfoProps) => {
     area,
     borders,
   } = country;
+
+  const neighbors = useNeighbors(borders);
 
   const infoSchema = [
     {
@@ -59,12 +56,6 @@ export const CountryInfo = ({ country }: CountryInfoProps) => {
       itemValue: area,
     }
   ];
-
-  useEffect(() => {
-    if (borders?.length) {
-      dispatch(fetchNeighbors(borders));
-    }
-  }, [borders, dispatch]);
 
   return (
     <>
