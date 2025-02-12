@@ -1,12 +1,12 @@
-import { Title } from 'components/Title';
-import { Image } from 'components/Image';
-import { Country } from 'types';
-import styles from './CountryInfo.module.scss';
-import { Info } from 'components/Info';
-import { Link } from 'components/Link';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'store';
 import { fetchNeighbors } from 'features/countryDetails/countryDetails';
+import { Title } from 'components/Title';
+import { Image } from 'components/Image';
+import { Info } from 'components/Info';
+import { Link } from 'components/Link';
+import { Country } from 'types';
+import styles from './CountryInfo.module.scss';
 
 interface CountryInfoProps {
   country: Country,
@@ -72,13 +72,13 @@ export const CountryInfo = ({ country }: CountryInfoProps) => {
       <div className={styles.countryInfo}>
         <Image size={'md'} srcImg={scrImg} altImg={alt}/>
 
-        <div>
+        <div >
           <Info infoSchema={infoSchema}/>
           {!borders?.length ? (
-            <span>No borders</span>
+            <span className={styles.noBorders}>No borders</span>
           ) : (
-            <div>
-              <span>Borders:</span>
+            <div className={styles.borders}>
+              <span className={styles.bordersTitle}>Borders:</span>
               {neighbors.map((item, index) => (
                 <Link key={index} path={`/country/${item}`} text={item}/>
               ))}
