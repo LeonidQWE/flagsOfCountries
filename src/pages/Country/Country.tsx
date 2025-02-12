@@ -13,7 +13,7 @@ export const Country = () => {
     if (name) {
       dispatch(fetchCountryDetails(name));
     }
-  }, [dispatch])
+  }, [dispatch, name]);
 
   return (
     <>

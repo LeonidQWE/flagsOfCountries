@@ -4,12 +4,18 @@ import { Country } from 'types';
 import styles from './CountryInfo.module.scss';
 import { Info } from 'components/Info';
 import { Link } from 'components/Link';
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from 'store';
+import { fetchNeighbors } from 'features/countryDetails/countryDetails';
 
 interface CountryInfoProps {
   country: Country,
 }
 
 export const CountryInfo = ({ country }: CountryInfoProps) => {
+  const dispatch = useAppDispatch();
+  const neighbors = useAppSelector(state => state.countryDetails.neighbors);
+
   const {
     name: {
       official: countryName,
@@ -54,6 +60,12 @@ export const CountryInfo = ({ country }: CountryInfoProps) => {
     }
   ];
 
+  useEffect(() => {
+    if (borders?.length) {
+      dispatch(fetchNeighbors(borders));
+    }
+  }, [borders, dispatch]);
+
   return (
     <>
       <Title name={countryName}/>
@@ -67,8 +79,8 @@ export const CountryInfo = ({ country }: CountryInfoProps) => {
           ) : (
             <div>
               <span>Borders:</span>
-              {borders.map((item, index) => (
-                <Link key={index} path={'#'} text={item}/>
+              {neighbors.map((item, index) => (
+                <Link key={index} path={`/country/${item}`} text={item}/>
               ))}
             </div>
           )}
