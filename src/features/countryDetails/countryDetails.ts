@@ -41,6 +41,12 @@ export const countryDetailsSlice = createSlice({
   name: 'countryDetails',
   initialState,
   reducers: {},
+  selectors: {
+    selectCountry: (state) => state.country,
+    selectCountryError: (state) => state.error,
+    selectCountryStatus: (state) => state.status,
+    selectCountryNeighbors: (state) => state.neighbors,
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCountryDetails.pending, (state) => {
@@ -61,3 +67,4 @@ export const countryDetailsSlice = createSlice({
 })
 
 export const countryDetailsReducer = countryDetailsSlice.reducer;
+export const { selectCountry, selectCountryError, selectCountryStatus, selectCountryNeighbors } = countryDetailsSlice.selectors;

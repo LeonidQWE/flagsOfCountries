@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'store';
-import { fetchNeighbors } from 'features/countryDetails/countryDetails';
+import { fetchNeighbors, selectCountryNeighbors } from 'features/countryDetails/countryDetails';
 
 export const useNeighbors =(borders: string[] | undefined) => {
   const dispatch = useAppDispatch();
-  const neighbors = useAppSelector(state => state.countryDetails.neighbors);
+  const neighbors = useAppSelector(selectCountryNeighbors);
 
   useEffect(() => {
     if (borders?.length) {
