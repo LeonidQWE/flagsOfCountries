@@ -30,6 +30,8 @@ const countrySlice = createSlice({
   reducers: {},
   selectors: {
     selectAllCountries: (state) => state.list,
+    selectAllCountriesError: (state) => state.error,
+    selectAllCountriesStatus: (state) => state.status,
   },
   extraReducers: (builder) => {
     builder
@@ -48,3 +50,4 @@ const countrySlice = createSlice({
 })
 
 export const countryReducer = countrySlice.reducer;
+export const { selectAllCountries, selectAllCountriesError, selectAllCountriesStatus } = countrySlice.selectors;

@@ -1,0 +1,21 @@
+.countryInfo {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  gap: 3rem;
+  color: var(--color-text);
+}
+
+.borders {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.bordersTitle,
+.noBorders {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
