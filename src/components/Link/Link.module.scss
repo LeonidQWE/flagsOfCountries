@@ -1,8 +1,8 @@
 .link {
   padding: 0.8rem 1.5rem;
   font-size: 1.6rem;
-  color: #000;
-  border: 1px solid #000;
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
   border-radius: 1rem;
 
   &:hover {
