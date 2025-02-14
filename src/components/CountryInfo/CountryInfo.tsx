@@ -1,4 +1,5 @@
 import { useNeighbors } from 'hooks/useNeighbors';
+import { BackLink } from 'components/BackLink';
 import { Title } from 'components/Title';
 import { Image } from 'components/Image';
 import { Info } from 'components/Info';
@@ -59,6 +60,7 @@ export const CountryInfo = ({ country }: CountryInfoProps) => {
 
   return (
     <>
+    <BackLink/>
       <Title name={countryName}/>
       <div className={styles.countryInfo}>
         <Image size={'md'} srcImg={scrImg} altImg={alt}/>
