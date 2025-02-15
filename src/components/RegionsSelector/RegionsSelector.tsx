@@ -1,15 +1,26 @@
 import { useState } from 'react';
+import { useAppDispatch } from 'store';
 import { GoTriangleDown, GoTriangleUp } from 'react-icons/go';
+import { setRegion } from 'features/controls/controlsSlice';
 import { regionsSchema} from 'constant/regionsSchema';
+import { Regions } from 'types';
 import styles from './RegionsSelector.module.scss';
 
 export const RegionsSelector = () => {
+  const dispatch = useAppDispatch();
   const [selectedRegion, setSelectedRegion] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const regions = Object.values(regionsSchema);
 
   const handleClickToggleSelectMenu = () => {
     setIsOpen(!isOpen);
+  }
+
+  const handleClickChoiceRegion = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const value = event.currentTarget.value as Regions;
+    setSelectedRegion(value);
+    setIsOpen(false);
+    dispatch(setRegion(value));
   }
 
   return (
@@ -25,7 +36,11 @@ export const RegionsSelector = () => {
       <ul className={`${styles.menuList} ${isOpen ? styles.open : ''}`}>
         {regions.map((region) => (
           <li key={region.id} className={styles.menuItem}>
-            <button value={region.value} className={styles.menuItemBtn}>
+            <button
+              value={region.value}
+              className={styles.menuItemBtn}
+              onClick={handleClickChoiceRegion}
+            >
               {region.label}
             </button>
           </li>

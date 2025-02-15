@@ -39,4 +39,4 @@ export type Country = {
   },
 }
 
-export type ShortCountryInfo = Pick<Country, 'name' | 'flags' | 'capital' | 'population'>;
+export type ShortCountryInfo = Pick<Country, 'name' | 'flags' | 'capital' | 'population' | 'region'>;
