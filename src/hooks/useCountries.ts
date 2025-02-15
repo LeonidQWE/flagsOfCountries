@@ -1,8 +1,13 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'store';
-import { fetchCountries, selectAllCountriesError, selectAllCountriesStatus, selectVisibleCountries } from 'features/countries/countriesSlice';
-import { ShortCountryInfo, Status } from 'types';
+import {
+  fetchCountries,
+  selectAllCountriesError,
+  selectAllCountriesStatus,
+  selectVisibleCountries
+} from 'features/countries/countriesSlice';
 import { selectRegion } from 'features/controls/controlsSlice';
+import { ShortCountryInfo, Status } from 'types';
 
 export const useCountries = (): [ShortCountryInfo[], Status, string | undefined] => {
   const dispatch = useAppDispatch();

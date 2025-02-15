@@ -38,10 +38,10 @@ export const RegionsSelector = () => {
       </div>
 
       {region && (
-            <button className={styles.clear} onClick={handleClickClearRegion}>
-              <RxCross2 className={styles.icon}/>
-            </button>
-          )}
+        <button className={styles.clear} onClick={handleClickClearRegion}>
+          <RxCross2 className={styles.icon}/>
+        </button>
+      )}
 
       <ul className={`${styles.menuList} ${isOpen ? styles.open : ''}`}>
         {regions.map((region) => (
