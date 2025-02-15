@@ -1,0 +1,51 @@
+.selectMenu {
+  color: var(--color-text);
+  width: 20rem;
+  font-size: 1.6rem;
+  position: relative;
+  border: 2px solid var(--border-color);
+  border-radius: 0.5rem;
+}
+
+.selectMenuHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.icon {
+  width: 3rem;
+  height: 2rem;
+}
+
+.menuList {
+  position: absolute;
+  left: 0;
+  top: 99%;
+  width: 20rem;
+  background-color: var(--body-bg);
+  display: none;
+
+  &.open {
+    display: block;
+  }
+}
+
+.menuItem {
+  padding: 0.5rem 1rem;
+}
+
+.menuItemBtn {
+  width: 100%;
+  font-size: 1.6rem;
+  color: var(--color-text);
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
