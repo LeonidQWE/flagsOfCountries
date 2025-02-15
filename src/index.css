@@ -8,11 +8,13 @@
 body[data-theme='light'] {
   --body-bg: var(--light);
   --color-text: var(--dark);
+  --border-color: var(--dark);
 }
 
 body[data-theme='dark'] {
   --body-bg: var(--dark-blue);
   --color-text: var(--light);
+  --border-color: var(--light);
 }
 
 *,

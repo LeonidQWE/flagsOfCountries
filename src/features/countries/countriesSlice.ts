@@ -32,6 +32,9 @@ const countrySlice = createSlice({
     selectAllCountries: (state) => state.list,
     selectAllCountriesError: (state) => state.error,
     selectAllCountriesStatus: (state) => state.status,
+    selectVisibleCountries: (state, region = '') => {
+      return state.list.filter(country => country.region.includes(region))
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -50,4 +53,9 @@ const countrySlice = createSlice({
 })
 
 export const countryReducer = countrySlice.reducer;
-export const { selectAllCountries, selectAllCountriesError, selectAllCountriesStatus } = countrySlice.selectors;
+export const {
+  selectAllCountries,
+  selectAllCountriesError,
+  selectAllCountriesStatus,
+  selectVisibleCountries,
+} = countrySlice.selectors;

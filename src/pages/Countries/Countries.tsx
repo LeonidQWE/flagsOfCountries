@@ -2,6 +2,7 @@ import { useCountries } from 'hooks/useCountries';
 import { CountriesList } from 'components/CountriesList';
 import { Error } from 'components/Error';
 import { Loading } from 'components/Loading';
+import { RegionsSelector } from 'components/RegionsSelector';
 
 export const Countries = () => {
   const [countries, status, error] = useCountries();
@@ -16,6 +17,9 @@ export const Countries = () => {
 
   return (
     <>
+    <div>
+      <RegionsSelector/>
+    </div>
       {countries.length > 0
         && status === 'succeeded'
         && <CountriesList countries={countries} />}
