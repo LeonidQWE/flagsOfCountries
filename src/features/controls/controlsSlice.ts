@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Regions } from "types";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Regions } from 'types';
 
 type ControlsSlice = {
   region: Regions | '';
@@ -15,7 +15,8 @@ const controlsSlice = createSlice({
   reducers: {
     setRegion: (state, action: PayloadAction<Regions>) => {
       state.region = action.payload;
-    }
+    },
+    clearRegion: () => initialState,
   },
   selectors: {
     selectRegion: (state) => state.region,
@@ -23,5 +24,5 @@ const controlsSlice = createSlice({
 })
 
 export const controlsReducer = controlsSlice.reducer;
-export const { setRegion } = controlsSlice.actions;
+export const { setRegion, clearRegion } = controlsSlice.actions;
 export const { selectRegion } = controlsSlice.selectors;
