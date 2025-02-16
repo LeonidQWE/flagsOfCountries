@@ -1,14 +1,12 @@
 import { ChangeEvent } from 'react';
-import { useAppDispatch, useAppSelector } from 'store';
-import { selectSearch, setSearch } from 'features/controls/controlsSlice';
+import { useSearch } from 'hooks/useSearch';
 import styles from './SearchEngine.module.scss';
 
 export const SearchEngine = () => {
-  const dispatch = useAppDispatch();
-  const searchValue = useAppSelector(selectSearch)
+  const { searchValue, setSearchValue} = useSearch();
 
   const handleChangeSearchCountry = (event: ChangeEvent<HTMLInputElement>) => {
-    dispatch(setSearch(event.target.value));
+    setSearchValue(event.target.value);
   }
 
   return (

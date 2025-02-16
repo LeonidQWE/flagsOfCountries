@@ -3,6 +3,9 @@
 }
 
 .input {
+  color: var(--color-text);
+  background-color: var(--body-bg);
+  border: 1px solid var(--border-color);
   width: 100%;
   font-size: 1.8rem;
   padding: 1rem;
