@@ -32,8 +32,9 @@ const countrySlice = createSlice({
     selectAllCountries: (state) => state.list,
     selectAllCountriesError: (state) => state.error,
     selectAllCountriesStatus: (state) => state.status,
-    selectVisibleCountries: (state, region = '') => {
-      return state.list.filter(country => country.region.includes(region))
+    selectVisibleCountries: (state, region = '', search = '') => {
+      return state.list.filter(country =>
+        country.name.common.toLowerCase().includes(search.toLowerCase()) && country.region.includes(region))
     },
   },
   extraReducers: (builder) => {
